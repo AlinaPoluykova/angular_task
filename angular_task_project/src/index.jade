@@ -1,0 +1,23 @@
+doctype html
+html(ng-app='application' ng-controller='MainCtrl')
+	head
+		meta(charset='utf-8')
+		title(ng-bind='title')
+		link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' rel='stylesheet')
+		link(href='styles/app.min.css' rel='stylesheet')
+	body
+		nav.navbar.navbar-default
+			.container-fluid
+				.collapse.navbar-collapse
+					ul.nav.navbar-nav
+						li
+							a(href='#/') Index
+						li
+							a(href='#/signin') Signin
+						li
+							a(href='#/count') Count
+		main.main-content(ng-view='')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-route.min.js')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.min.js')
+		script(src='app.min.js')

@@ -1,0 +1,62 @@
+.container.count-container
+	.row
+		.col-md-6.hidden-xs.info-block
+			.panel.panel-info
+				.panel-heading
+					h4 Hello {{ login | hideEmail }}!
+				.panel-body
+					p {{ operations[activeStep-1] }}
+		.col-md-6.operation-block
+			.panel.panel-success
+				.panel-heading
+					p Operation goes here
+				.panel-body
+					form(name='formCount')
+						.steps(ng-switch='activeStep')
+							.step.step-data-input(ng-switch-when='1')
+								.form-group(ng-class='{ "has-error": formCount.num1.$dirty && formCount.num1.$invalid }')
+									label.control-label First number
+									input.form-control(type='number' name='num1' ng-model='numbers.num1' required min='1')
+									span.help-block(ng-show='formCount.num1.$dirty && formCount.num1.$invalid') Positive number is required
+								.form-group(ng-class='{ "has-error": formCount.num2.$dirty && formCount.num2.$invalid }')
+									label.control-label Second number
+									input.form-control(type='number' name='num2' ng-model='numbers.num2' required min='1')
+									span.help-block(ng-show='formCount.num2.$dirty && formCount.num2.$invalid') Positive number is required
+								.form-group(ng-class='{ "has-error": formCount.num3.$dirty && formCount.num3.$invalid }')
+									label.control-label Third number
+									input.form-control(type='number' name='num3' ng-model='numbers.num3' required min='1')
+									span.help-block(ng-show='formCount.num3.$dirty && formCount.num3.$invalid') Positive number is required
+							.step.step-data-confirmation(ng-switch-when='2')
+								table.table.table-bordered
+									table.table
+										thead
+											tr
+												th
+												th First number
+												th Second number
+												th Third number
+										tbody
+											tr
+												td
+												td {{ numbers.num1 }}
+												td {{ numbers.num2 }}
+												td {{ numbers.num3 }}
+							.step(ng-switch-when='3')
+								p.text-center Counting ...
+							.step.step-data-result(ng-switch-when='4')
+								table.table.table-bordered.table-result
+									table.table
+										thead
+											tr.default
+												th First number
+												th Second number
+												th Third number
+												th Result
+										tbody
+											tr(ng-class='{ success: result % 2 === 0 }')
+												td {{ numbers.num1 }}
+												td {{ numbers.num2 }}
+												td {{ numbers.num3 }}
+												td {{ result = numbers.num1 + numbers.num2 + numbers.num3 }}
+						button.btn.btn-success.pull-left(ng-click='back()' ng-if='activeStep === 2 || activeStep === 4') {{ activeStep === 4 ? "Back to Data Input" : "Back" }}
+						button.btn.btn-success.pull-right(ng-click='next()' ng-if='activeStep === 1 || activeStep === 2' ng-disabled='formCount.$invalid') Next

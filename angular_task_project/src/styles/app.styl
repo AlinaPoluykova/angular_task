@@ -1,0 +1,65 @@
+html, body, .container
+	height 100%
+
+.navbar
+	border-radius: 0
+
+.main-content
+	height: 100%
+	width: 100%
+
+	// Index template
+	.index-container
+		text-align: center
+		position: relative
+		top: 50% - 10rem;
+		transform: translateY(-50%)
+		h4
+			width: 50rem
+			display: block
+			margin: 2rem auto
+			line-height 1.4
+		.go-to-login
+			display: block
+			margin-left: auto
+			margin-right: auto
+			width: 20rem
+
+	//Signin
+	.signin-container
+		.sign-in-btn[disabled]
+			background red
+			border red
+			opacity 0.5
+
+	//Counting
+	.step-data-input
+		padding 2rem
+	.step-data-confirmation, .step-data-result > table
+		tr, th
+			text-align: center
+
+	// Animation
+	.steps
+		position: relative
+		overflow: hidden
+		min-height: 30rem
+
+	.step.ng-animate
+		-webkit-transition: all ease 0.5s
+		transition: all ease 0.5s
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+
+	.step.ng-leave.ng-leave-active, .step.ng-enter
+		transform: translateX(-100%)
+
+	.step.ng-leave, .step.ng-enter.ng-enter-active
+		transform: translateX(0%)
+
+	.step.ng-enter
+		transform: translateX(100%)
+

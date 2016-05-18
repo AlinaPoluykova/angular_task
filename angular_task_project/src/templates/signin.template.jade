@@ -1,0 +1,15 @@
+.container.signin-container
+	.row
+		.col-md-6.col-md-offset-3
+			h2 Sign In
+			form(name='form' ng-submit='signIn()' role='form')
+				.form-group(ng-class='{ "has-error": form.login.$dirty && form.login.$invalid }')
+					label.control-label Login
+					input.form-control(type='email' name='login' ng-model='login' required)
+					span.help-block(ng-show='form.login.$dirty && form.login.$invalid') Login is required (email)
+				.form-group(ng-class='{ "has-error": form.password.$dirty && form.password.$invalid }')
+					label.control-label Password
+					input.form-control(type='password' name='password' ng-model='password' required)
+					span.help-block(ng-show='form.password.$dirty && form.password.$invalid') Password is required
+				.form-actions
+					button.btn.btn-success.sign-in-btn(type='submit' ng-disabled='form.$invalid') Sign In

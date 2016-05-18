@@ -10,13 +10,14 @@ To run project:
 6. Check the result ( localhost:8080 )
 
 Project structure:
+
 angular_task_project - root directory;  
-  build - built app with minified js, css files;
-  src - dev app files;  
-  node_modules - app dependencies;  
-  .gitignore;  
-  gulpfile.js;  
-  package.json;
+build - built app with minified js, css files;  
+src - dev app files;  
+node_modules - app dependencies;  
+.gitignore;  
+gulpfile.js;  
+package.json;
   
     
   
